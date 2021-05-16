@@ -58,3 +58,5 @@
 {"level":"INFO","time":"2021-05-17T02:42:25.518+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
 {"level":"DEBUG","time":"2021-05-17T02:42:26.968+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
 {"level":"INFO","time":"2021-05-17T02:42:33.883+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.071074628}
+{"level":"INFO","time":"2021-05-17T03:12:33.653+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T03:12:34.154+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
