@@ -1,0 +1,62 @@
+{"level":"DEBUG","time":"2021-05-17T02:21:35.431+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:22:01.374+0800","caller":"zaplogger/logger.go:76","msg":"/register","status":200,"method":"POST","path":"/register","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.000066014}
+{"level":"INFO","time":"2021-05-17T02:22:15.909+0800","caller":"zaplogger/logger.go:76","msg":"/register","status":200,"method":"POST","path":"/register","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.000018678}
+{"level":"INFO","time":"2021-05-17T02:22:28.233+0800","caller":"zaplogger/logger.go:76","msg":"/registe","status":200,"method":"POST","path":"/registe","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.000014295}
+{"level":"INFO","time":"2021-05-17T02:22:44.371+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:22:44.876+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:22:52.070+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:22:55.595+0800","caller":"zaplogger/logger.go:76","msg":"/registe","status":200,"method":"POST","path":"/registe","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.000064993}
+{"level":"ERROR","time":"2021-05-17T02:23:00.405+0800","caller":"repository/user.go:82","msg":"FindUserByUsername failed,err:sql: no rows in result set\n"}
+{"level":"INFO","time":"2021-05-17T02:23:00.479+0800","caller":"zaplogger/logger.go:76","msg":"/register","status":200,"method":"POST","path":"/register","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.08941691}
+{"level":"INFO","time":"2021-05-17T02:23:21.798+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:23:22.300+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:23:23.729+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:23:39.758+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:23:40.261+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:23:41.636+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:23:46.882+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.079276318}
+{"level":"INFO","time":"2021-05-17T02:23:58.703+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:23:59.206+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:24:00.572+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:24:01.927+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.069795944}
+{"level":"INFO","time":"2021-05-17T02:26:30.672+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:26:31.174+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:26:32.600+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:26:34.764+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.080922569}
+{"level":"INFO","time":"2021-05-17T02:27:29.926+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:27:30.431+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:27:31.863+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:27:34.729+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.072752668}
+{"level":"INFO","time":"2021-05-17T02:27:55.808+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:27:56.311+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:27:57.747+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:27:59.892+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.074504381}
+{"level":"INFO","time":"2021-05-17T02:28:46.267+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:28:46.769+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:28:48.172+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:28:50.493+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.080062163}
+{"level":"INFO","time":"2021-05-17T02:31:16.878+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:31:17.383+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:31:18.789+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:32:32.342+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:32:32.842+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:32:34.253+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:32:41.556+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.07541045}
+{"level":"INFO","time":"2021-05-17T02:35:02.192+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:35:02.693+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:35:04.126+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:35:06.963+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.073166801}
+{"level":"INFO","time":"2021-05-17T02:35:30.129+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:35:30.632+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:35:32.067+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:35:34.167+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.077109321}
+{"level":"INFO","time":"2021-05-17T02:41:20.715+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:41:21.220+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:41:22.679+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:41:30.432+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.07295243}
+{"level":"INFO","time":"2021-05-17T02:42:25.017+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T02:42:25.518+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}
+{"level":"DEBUG","time":"2021-05-17T02:42:26.968+0800","caller":"bluebell/main.go:45","msg":"init zaplogger success\n"}
+{"level":"INFO","time":"2021-05-17T02:42:33.883+0800","caller":"zaplogger/logger.go:76","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36","errors":"","cost":0.071074628}
+{"level":"INFO","time":"2021-05-17T03:12:33.653+0800","caller":"bluebell/main.go:83","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2021-05-17T03:12:34.154+0800","caller":"bluebell/main.go:91","msg":"Server exciting ..."}

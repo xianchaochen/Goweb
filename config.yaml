@@ -1,0 +1,28 @@
+
+name: "bluebell"
+mode: "debug"
+port: 8082
+version: "v0.1.4"
+snowflake:
+  start_time: "2021-05-14"
+  machine_id: 1
+log:
+  level: "debug"
+  filename: "./log/bluebell.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
+mysql:
+  host: "127.0.0.1"
+  port: 3310
+  user: "root"
+  password: "123456"
+  dbname: "qimi"
+  max_idle_conns : 50  #maxIdleCount 最大空闲连接数，默认不配置，是2个最大空闲连接
+  max_open_conns : 200
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  dbname: 0
+  password: ""
+  pool_size : 100
