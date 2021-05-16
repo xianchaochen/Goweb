@@ -11,7 +11,6 @@ import (
 	"go.uber.org/zap"
 )
 
-
 func Init(filePath string) (err error) {
 	//viper.SetConfigName("config.json")
 	viper.SetConfigFile(filePath)
@@ -33,7 +32,7 @@ func Init(filePath string) (err error) {
 	return nil
 }
 
-func watch()  {
+func watch() {
 	viper.WatchConfig()
 	viper.OnConfigChange(func(in fsnotify.Event) {
 		fmt.Println("配置文件修改了")

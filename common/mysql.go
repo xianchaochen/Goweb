@@ -22,8 +22,10 @@ func NewMysqlConn(cfg *config.MysqlConfig) ( db *sqlx.DB,err error)  {
 		return
 	}
 
+
 	db.SetMaxIdleConns(cfg.MaxIdleConns)
 	db.SetMaxOpenConns(cfg.MaxOpenConns)
+
 	return
 }
 

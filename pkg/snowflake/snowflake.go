@@ -23,12 +23,3 @@ func Init(startTime string, machineID int64) (err error)  {
 func GenID() int64  {
 	return node.Generate().Int64()
 }
-
-//func main() {
-//	if err := Init("2021-05-14", 1); err != nil {
-//		return
-//	}
-//	ID := GenID()
-//
-//	fmt.Println(ID)
-//}

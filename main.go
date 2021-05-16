@@ -38,13 +38,11 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	// 初始化日志
 	if err := zaplogger.Init(config.GlobalConfig.LogConfig); err != nil {
 		fmt.Printf("Init zaplogger failed, err:%v\n", err)
 		return
 	}
 	zap.L().Debug("init zaplogger success\n")
-	// 缓存区的日志刷出来
 	defer zap.L().Sync()
 
 	if err := snowflake.Init(config.GlobalConfig.SnowflakeConfig.StartTime,
@@ -53,7 +51,6 @@ func main() {
 		return
 	}
 
-	// 初始化validator翻译器
 	if err := translator.InitTrans("zh"); err != nil {
 		fmt.Printf("init trans failed, err:%v\n", err)
 		return

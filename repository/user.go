@@ -4,6 +4,7 @@ import (
 	"bluebell/common"
 	"bluebell/config"
 	"bluebell/model"
+	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/zap"
@@ -11,8 +12,9 @@ import (
 
 type IUserRepository interface {
 	Conn() error
-	CheckUserExist(userName string) (bool, error)
+	CheckUserExist(userName string) (bool)
 	Insert(user *model.User) (userID int64, err error)
+	FindUserByUsername(username string) (user *model.User)
 }
 
 func NewUserRepository(userTable string) IUserRepository {
@@ -31,7 +33,7 @@ func (u *UserManagerRepository) Conn() (err error) {
 	if u.mysqlConn == nil {
 		mysql, errMysql := common.NewMysqlConn(config.GlobalConfig.MysqlConfig)
 		if errMysql != nil {
-			zap.L().Error("数据库连接失败")
+			zap.L().Error(fmt.Sprintf("Conn Mysql failed,err%v\n", errMysql))
 			return errMysql
 		}
 		u.mysqlConn = mysql
@@ -43,17 +45,16 @@ func (u *UserManagerRepository) Conn() (err error) {
 	return
 }
 
-func (u *UserManagerRepository) CheckUserExist(username string) (bool, error) {
+func (u *UserManagerRepository) CheckUserExist(username string) (bool) {
 	if err := u.Conn(); err != nil {
-		return false, err
+		return true
 	}
-	sql := "select count(id) from " + u.table + " where username = ?"
-	var result int
-	err := u.mysqlConn.Get(&result, sql, username)
-	if err != nil {
-		return false, err
+	user := u.FindUserByUsername(username)
+	if user != nil {
+		return true
 	}
-	return result > 0, nil
+
+	return false
 }
 
 func (u *UserManagerRepository) Insert(user *model.User) (userID int64, err error) {
@@ -66,4 +67,21 @@ func (u *UserManagerRepository) Insert(user *model.User) (userID int64, err erro
 		return 0, err
 	}
 	return user.UserID, nil
+}
+
+
+func (u *UserManagerRepository) FindUserByUsername(username string) *model.User {
+	if err := u.Conn(); err != nil {
+		return nil
+	}
+
+	var user model.User
+	sql := "Select id,user_id,username,password,email,gender,create_time,update_time from " + u.table + " Where username=?"
+	err := u.mysqlConn.Get(&user, sql, username)
+	if err != nil {
+		zap.L().Error(fmt.Sprintf("FindUserByUsername failed,err:%v\n", err))
+		return nil
+	}
+
+	return &user
 }

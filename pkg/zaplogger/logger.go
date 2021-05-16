@@ -18,7 +18,7 @@ import (
 var lg *zap.Logger
 
 func Init(config *config.LogConfig) (err error) {
-	writeSyncer := getLogWriter(config.Filename, config.MaxSize, config.MaxBackups,config.MaxAge)
+	writeSyncer := getLogWriter(config.Filename, config.MaxSize, config.MaxBackups, config.MaxAge)
 	encoder := getEncoder()
 	var l = new(zapcore.Level)
 	err = l.UnmarshalText([]byte(config.Level))
@@ -31,14 +31,12 @@ func Init(config *config.LogConfig) (err error) {
 		consoleEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
 		//支持多个输出
 		core = zapcore.NewTee(
-			zapcore.NewCore(encoder,writeSyncer, l),
+			zapcore.NewCore(encoder, writeSyncer, l),
 			zapcore.NewCore(consoleEncoder, zapcore.Lock(os.Stdout), zapcore.DebugLevel),
 		)
 	} else {
 		core = zapcore.NewCore(encoder, writeSyncer, l)
 	}
-
-
 
 	lg = zap.New(core, zap.AddCaller())
 	// 替换zap包中全局的logger实例，后续在其他包中只需使用zap.L()调用即可
@@ -65,8 +63,6 @@ func getLogWriter(filename string, maxSize, maxBackup, maxAge int) zapcore.Write
 	}
 	return zapcore.AddSync(lumberJackLogger)
 }
-
-
 
 // GinLogger 接收gin框架默认的日志
 func GinLogger() gin.HandlerFunc {
