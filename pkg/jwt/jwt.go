@@ -12,7 +12,7 @@ type MyClaims struct {
 	jwt.StandardClaims
 }
 
-const TokenExpireDuration = time.Hour * 2
+const TokenExpireDuration = time.Hour * 2 *365
 
 var MySecret = []byte("夏天夏天悄悄过去")
 
@@ -30,14 +30,14 @@ func Generate(username string, userID int64) (aToken string, rToken string, err 
 	aToken, err = jwt.NewWithClaims(jwt.SigningMethodHS256, c).SignedString(MySecret)
 
 	rToken, err = jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.StandardClaims{
-		ExpiresAt: time.Now().Add(time.Second * 30).Unix(), // 过期时间
+		ExpiresAt: time.Now().Add(86700*7).Unix(), // 过期时间
 		Issuer:    "bluebell",                              // 签发人
 	}).SignedString(MySecret)
 	return
 }
 
 func Parse(tokenString string) (*MyClaims, error) {
-	var myClaims *MyClaims
+	var myClaims = new(MyClaims)
 	token, err := jwt.ParseWithClaims(tokenString, myClaims, secret())
 	if err != nil {
 		return nil, err

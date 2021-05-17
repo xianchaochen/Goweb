@@ -18,6 +18,8 @@ var (
 	ErrUserRegisterFailed = NewError(20103, "注册失败")
 	ErrUserTokenEmpty = NewError(20104, "Token为空")
 	ErrUserTokenInvalid = NewError(20105, "Token不合法")
+	ErrUserVoteFAILED = NewError(20106, "投票失败")
+
 
 
 

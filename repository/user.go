@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"bluebell/common"
+	mysql2 "bluebell/common/mysql"
 	"bluebell/config"
-	"bluebell/model"
+	"bluebell/entity"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
@@ -13,8 +13,8 @@ import (
 type IUserRepository interface {
 	Conn() error
 	CheckUserExist(userName string) (bool)
-	Insert(user *model.User) (userID int64, err error)
-	FindUserByUsername(username string) (user *model.User)
+	Insert(user *entity.User) (userID int64, err error)
+	FindUserByUsername(username string) (user *entity.User)
 }
 
 func NewUserRepository(userTable string) IUserRepository {
@@ -31,7 +31,7 @@ type UserManagerRepository struct {
 
 func (u *UserManagerRepository) Conn() (err error) {
 	if u.mysqlConn == nil {
-		mysql, errMysql := common.NewMysqlConn(config.GlobalConfig.MysqlConfig)
+		mysql, errMysql := mysql2.NewMysqlConn(config.GlobalConfig.MysqlConfig)
 		if errMysql != nil {
 			zap.L().Error(fmt.Sprintf("Conn Mysql failed,err%v\n", errMysql))
 			return errMysql
@@ -57,7 +57,7 @@ func (u *UserManagerRepository) CheckUserExist(username string) (bool) {
 	return false
 }
 
-func (u *UserManagerRepository) Insert(user *model.User) (userID int64, err error) {
+func (u *UserManagerRepository) Insert(user *entity.User) (userID int64, err error) {
 	if err = u.Conn(); err != nil {
 		return 0, err
 	}
@@ -70,12 +70,12 @@ func (u *UserManagerRepository) Insert(user *model.User) (userID int64, err erro
 }
 
 
-func (u *UserManagerRepository) FindUserByUsername(username string) *model.User {
+func (u *UserManagerRepository) FindUserByUsername(username string) *entity.User {
 	if err := u.Conn(); err != nil {
 		return nil
 	}
 
-	var user model.User
+	var user entity.User
 	sql := "Select id,user_id,username,password,email,gender,create_time,update_time from " + u.table + " Where username=?"
 	err := u.mysqlConn.Get(&user, sql, username)
 	if err != nil {

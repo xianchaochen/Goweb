@@ -1,8 +1,8 @@
-package v1
+package api
 
 import (
 	"bluebell/common"
-	"bluebell/entity/user"
+	"bluebell/entity"
 	"bluebell/pkg/errno"
 	"bluebell/pkg/translator"
 	"bluebell/repository"
@@ -25,7 +25,7 @@ func init() {
 }
 
 func RegisterHandler(c *gin.Context) {
-	p := new(user.ParamRegister)
+	p := new(entity.ParamRegister)
 	if err := c.ShouldBindJSON(&p); err != nil {
 		// 获取validator.ValidationErrors类型的errors
 		errs, ok := err.(validator.ValidationErrors)
@@ -52,7 +52,7 @@ func RegisterHandler(c *gin.Context) {
 }
 
 func LoginHandler(c *gin.Context) {
-	p := new(user.ParamLogin)
+	p := new(entity.ParamLogin)
 	if err := c.ShouldBindJSON(&p); err != nil {
 		// 获取validator.ValidationErrors类型的errors
 		errs, ok := err.(validator.ValidationErrors)
@@ -85,4 +85,6 @@ func LoginHandler(c *gin.Context) {
 
 	c.JSON(http.StatusOK, errno.OK.WithData(data))
 }
+
+
 
