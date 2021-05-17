@@ -6,7 +6,7 @@ import (
 	"bluebell/pkg/translator"
 	"bluebell/pkg/viper"
 	"bluebell/pkg/zaplogger"
-	router_v1 "bluebell/router/v1"
+	"bluebell/router"
 	"context"
 	"flag"
 	"fmt"
@@ -28,7 +28,6 @@ func init() {
 
 func main() {
 	flag.Parse()
-
 	if err := viper.Init(confPath); err != nil {
 		fmt.Printf("Init config failed, err:%v\n", err)
 		return
@@ -42,7 +41,6 @@ func main() {
 		fmt.Printf("Init zaplogger failed, err:%v\n", err)
 		return
 	}
-	zap.L().Debug("init zaplogger success\n")
 	defer zap.L().Sync()
 
 	if err := snowflake.Init(config.GlobalConfig.SnowflakeConfig.StartTime,
@@ -58,7 +56,7 @@ func main() {
 
 	r := gin.New()
 	r.Use(zaplogger.GinLogger(), zaplogger.GinRecovery(true))
-	router_v1.Register(r)
+	router.Register(r)
 
 	// 启动服务 优雅关机
 	srv := &http.Server{

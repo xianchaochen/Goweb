@@ -1,4 +1,4 @@
-package common
+package mysql
 
 import (
 	"bluebell/config"
@@ -22,10 +22,8 @@ func NewMysqlConn(cfg *config.MysqlConfig) ( db *sqlx.DB,err error)  {
 		return
 	}
 
-
 	db.SetMaxIdleConns(cfg.MaxIdleConns)
 	db.SetMaxOpenConns(cfg.MaxOpenConns)
-
 	return
 }
 

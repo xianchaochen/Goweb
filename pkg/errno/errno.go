@@ -20,7 +20,7 @@ type Error interface {
 type err struct {
 	Code int         `json:"code"`         // 业务编码
 	Msg  string      `json:"msg"`          // 错误描述
-	Data interface{} `json:"data"`         // 成功时返回的数据
+	Data interface{} `json:"data,omitempty"`         // 成功时返回的数据
 	ID   string      `json:"id,omitempty"` // 当前请求的唯一ID，便于问题定位，忽略也可以
 }
 
