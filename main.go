@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bluebell/common/redis"
 	"bluebell/config"
 	"bluebell/pkg/snowflake"
 	"bluebell/pkg/translator"
@@ -10,22 +11,35 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"go.uber.org/zap"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/gin-contrib/pprof"
+	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 var confPath string
 
 func init() {
-	flag.StringVar(&confPath, "config", "config.yaml", "default config path.")
+	flag.StringVar(&confPath, "config", "./config/config.yaml", "default config path.")
 }
 
+// @title bluebell
+// @version 1.0
+// @description 描述啥
+// @termsOfService http://baidu.com/
+// @contact.name cwaves
+// @contact.url http://www.swagger.io/support
+// @contact.email xianchao.chen@foxmail.com
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+// @host 127.0.0.1:8082
+// @BasePath v1
 func main() {
 	flag.Parse()
 	if err := viper.Init(confPath); err != nil {
@@ -43,6 +57,11 @@ func main() {
 	}
 	defer zap.L().Sync()
 
+	if err := redis.Init(config.GlobalConfig.RedisConfig); err != nil {
+		fmt.Printf("Init Redis failed, err:%v\n", err)
+		return
+	}
+
 	if err := snowflake.Init(config.GlobalConfig.SnowflakeConfig.StartTime,
 		config.GlobalConfig.SnowflakeConfig.MachineID); err != nil {
 		fmt.Printf("Init snowflake  failed, err:%v\n", err)
@@ -57,6 +76,8 @@ func main() {
 	r := gin.New()
 	r.Use(zaplogger.GinLogger(), zaplogger.GinRecovery(true))
 	router.Register(r)
+
+	pprof.Register(r)
 
 	// 启动服务 优雅关机
 	srv := &http.Server{

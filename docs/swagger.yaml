@@ -1,0 +1,103 @@
+basePath: v1
+definitions:
+  api._JWTData:
+    properties:
+      access_token:
+        type: string
+      refresh_token:
+        type: string
+    type: object
+  api._LoginResponse:
+    properties:
+      code:
+        description: 业务响应状态码
+        type: integer
+      data:
+        $ref: '#/definitions/api._JWTData'
+        description: 数据
+      message:
+        description: 提示信息
+        type: string
+    type: object
+host: 127.0.0.1:8082
+info:
+  contact:
+    email: xianchao.chen@foxmail.com
+    name: cwaves
+    url: http://www.swagger.io/support
+  description: 描述啥
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://baidu.com/
+  title: bluebell
+  version: "1.0"
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: 登陆接口
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: 不能为空
+        in: query
+        name: password
+        required: true
+        type: string
+      - description: 不能为空
+        in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._LoginResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: 登陆接口
+      tags:
+      - 用户
+  /posts2:
+    get:
+      consumes:
+      - application/json
+      description: 快速注册
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: 不能为空
+        in: query
+        name: password
+        required: true
+        type: string
+      - description: 不能为空,必须和上面相等
+        in: query
+        name: re_password
+        required: true
+        type: string
+      - description: 不能为空
+        in: query
+        name: username
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      summary: 注册接口啊
+      tags:
+      - 用户
+swagger: "2.0"
