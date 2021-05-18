@@ -18,8 +18,9 @@ const (
 	KeyPostVotedPrefix = "post:voted:" // zset 记录用户及投票类型,参数是post_id
 )
 
-func init() {
-	Client, _ = NewRedisConn(config.GlobalConfig.RedisConfig)
+func Init(cfg *config.RedisConfig)(err error) {
+	Client, err = NewRedisConn(cfg)
+	return
 }
 
 func NewRedisConn(cfg *config.RedisConfig) (rdb *redis.Client, err error) {
@@ -35,6 +36,13 @@ func NewRedisConn(cfg *config.RedisConfig) (rdb *redis.Client, err error) {
 
 func GetKey(key string) string  {
 	return Prefix +key
+}
+
+func ZData(score float64,member interface{}) redis.Z  {
+	return redis.Z{
+		Score: score,
+		Member: member,
+	}
 }
 
 

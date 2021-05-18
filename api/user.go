@@ -24,6 +24,15 @@ func init() {
 	userService, _ = (service.NewUserService(repository.NewUserRepository(""))).(*service.UserService)
 }
 
+// RegisterHandler 注册接口
+// @Summary 注册接口
+// @Description 快速注册
+// @Tags 用户
+// @Accept application/json
+// @Produce application/json
+// @Param object query entity.ParamRegister false "查询参数"
+// @Success 200
+// @Router /register [get]
 func RegisterHandler(c *gin.Context) {
 	p := new(entity.ParamRegister)
 	if err := c.ShouldBindJSON(&p); err != nil {
@@ -51,6 +60,18 @@ func RegisterHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, errno.OK)
 }
 
+
+// LoginHandler 登陆接口
+// @Summary 登陆接口
+// @Description 登陆接口
+// @Tags 用户
+// @Accept application/json
+// @Produce application/json
+// @Param Authorization header string false "Bearer 用户令牌"
+// @Param object query entity.ParamLogin false "查询参数"
+// @Security ApiKeyAuth
+// @Success 200 {object} _LoginResponse
+// @Router /login [post]
 func LoginHandler(c *gin.Context) {
 	p := new(entity.ParamLogin)
 	if err := c.ShouldBindJSON(&p); err != nil {

@@ -10,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"net/http"
+	"strconv"
 )
 
 func PostVoteHandler(c *gin.Context)  {
@@ -30,8 +31,8 @@ func PostVoteHandler(c *gin.Context)  {
 	}
 
 	value, _ := c.Get(ContextUserIDKey)
-	user_id := value.(int64)
-	err := service.PostVote(user_id, p)
+	user_id, _ := value.(int)
+	err := service.PostVote(strconv.Itoa(user_id), p.PostID, float64(p.Direction))
 	if err != nil {
 		c.JSON(http.StatusOK, errno.ErrUserVoteFAILED)
 		return
